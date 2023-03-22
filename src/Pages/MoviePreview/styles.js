@@ -42,7 +42,6 @@ export const Button = styled.div`
 `
 
 export const Content = styled.div`
-  /* max-width: 1150px; */
   padding: 20px;
 `
 
@@ -62,13 +61,15 @@ export const Title = styled.div`
 `
 
 export const Stars = styled.div`
-  color: ${({ theme }) => theme.COLORS.PINK};
+
+div {
   height: 25px;
   font-size: 25px;
-
+  
   display: flex;
   gap: 10px;
   justify-content: space-between;
+}
 `
 
 export const Info = styled.div`
