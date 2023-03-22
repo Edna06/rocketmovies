@@ -3,7 +3,8 @@ import {Tag} from '../../Components/Tag'
 import {FiStar, FiClock} from 'react-icons/fi'
 import {AiFillStar} from 'react-icons/ai'
 import {Header} from '../../Components/Header/index'
-import { ButtonText } from '../../Components/Buttontext'
+import { ButtonText } from '../../Components/ButtonText'
+import { StarRating} from '../../Components/StarRating'
 
 
 export function MoviePreview(){
@@ -23,11 +24,7 @@ export function MoviePreview(){
        <Title>
          <h1>Interestellar</h1>
         <Stars>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
-              <FiStar/>
+              <StarRating rating={4}/>
         </Stars>
        </Title>
 
