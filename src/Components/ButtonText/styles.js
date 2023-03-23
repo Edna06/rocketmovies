@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
-width: 69px;
+width: auto;
 display: flex;
-justify-content: space-between;
+gap: 5px;
 align-items: center;
 
 color: ${({theme}) => theme.COLORS.PINK};

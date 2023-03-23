@@ -31,8 +31,8 @@ export function Profile(){
       </Avatar>
     
 
-      <Input icon={FiUser} placeholder="Nome"/>
-      <Input icon={FiMail} placeholder="E-mail"/>
+      <Input icon={FiUser} type='text' placeholder="Nome"/>
+      <Input icon={FiMail} type='text' placeholder="E-mail"/>
       <Input icon={HiLockClosed} type='password' placeholder="Senha atual"/>
       <Input icon={HiLockOpen} type='password' placeholder="Nova senha"/>
 

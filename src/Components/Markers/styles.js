@@ -14,19 +14,20 @@ export const Container = styled.div`
     isNew ? 'transparent' : theme.COLORS.BACKGROUND_700};
 
   border: ${({ theme, isNew }) =>
-    !isNew ? 'none':`1px dashed ${theme.COLORS.GRAY_300}` };
+    !isNew ? 'none' : `1px dashed ${theme.COLORS.GRAY_300}`};
 
   > input {
     color: ${({ theme }) => theme.COLORS.WHITE};
     background: transparent;
     border: none;
-    width: ${({isNew}) => !isNew ? '56px' : '180px'};
+
+    width: ${({ isNew }) => (!isNew ? '140px' : '160px')};
 
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
 
-    color: ${({theme}) => theme.COLORS.WHITE_TITLE};
+    color: ${({ theme }) => theme.COLORS.WHITE_TITLE};
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_300};

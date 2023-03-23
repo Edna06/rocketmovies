@@ -34,7 +34,8 @@ export function CreateMovie(){
             <h3>Marcadores</h3>
 
           <div className="tags">
-          <Markers value="React" />
+          <Markers value="Suspense" />
+          <Markers value="Ficção científica" />
           <Markers placeholder="Novo marcador"  isNew/>
           </div>
 
