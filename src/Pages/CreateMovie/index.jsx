@@ -14,7 +14,7 @@ export function CreateMovie(){
       <Header/>
      
       <Head>
-      <ButtonText  icon title="Voltar"/>
+      <ButtonText  redirect='/' icon title="Voltar"/>
       </Head> 
 
       <main>

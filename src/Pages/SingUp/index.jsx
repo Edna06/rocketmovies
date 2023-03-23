@@ -37,7 +37,7 @@ export function SingUp(){
         <Button title='Cadastrar'/>
 
       <div className="buttonNewAccount">
-       <ButtonText icon title='Voltar para o login'/> 
+       <ButtonText  redirect='/login' icon title='Voltar para o login'/> 
       </div>
 
       </Form>

@@ -1,4 +1,4 @@
-import {Container, Profile, Search} from "./styles"
+import {Container, Profile, Search, Span} from "./styles"
 import {Input} from "../Input/index"
 
 export function Header(){
@@ -11,10 +11,10 @@ export function Header(){
    <Input placeholder="Pesquisar pelo título"/>
     </Search>
 
-    <Profile>
+    <Profile to='/profile'>
       <div>
         <strong>Edna Moreira</strong>
-        <span>Sair</span>
+        <Span to='/login'>Sair</Span>
       </div>
 
       <img src="https://github.com/Edna06.png" alt="foto do usuário" />

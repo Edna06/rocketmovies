@@ -15,7 +15,7 @@ export function Profile(){
   <Container>
 
       <header>
-        <ButtonText icon title='Voltar'/>
+        <ButtonText redirect={'/'} icon title='Voltar'/>
       </header>
 
     <Form>

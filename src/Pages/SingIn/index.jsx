@@ -1,5 +1,7 @@
 import {Container, Form, Background} from "./styles"
 
+import {Link} from 'react-router-dom'
+
 import {FiMail, FiLock } from 'react-icons/fi'
 
 import { Button } from "../../Components/Button"
@@ -30,7 +32,7 @@ export function SingIn(){
         <Button title='Entrar'/>
 
       <div className="buttonNewAccount">
-       <ButtonText title='Criar conta'/> 
+        <ButtonText redirect={'/Register'} title='Criar conta'/>
       </div>
 
       </Form>

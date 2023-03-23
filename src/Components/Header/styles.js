@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+import { Link } from 'react-router-dom'
 
+export const Container = styled.div`
   background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   width: 100%;
   height: 116px;
@@ -11,7 +12,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 42px 123px;
 
-  border-width: 1px; 
+  border-width: 1px;
   border-bottom-style: solid;
   border-color: ${({ theme }) => theme.COLORS.GRAY_500};
 
@@ -27,7 +28,7 @@ export const Search = styled.div`
   height: 56px;
 `
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,20 +43,10 @@ export const Profile = styled.div`
       font-weight: 700;
       font-size: 14px;
       line-height: 18px;
-      color: ${({theme}) => theme.COLORS.WHITE};
+      color: ${({ theme }) => theme.COLORS.WHITE};
     }
-
-    span{
-      align-items: flex-end;
-      text-align: left;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
-
-      color: ${({theme})=> theme.COLORS.GRAY_300};
-    };
   }
+  
   > img {
     margin-left: 9px;
 
@@ -65,8 +56,20 @@ export const Profile = styled.div`
     border-radius: 35px;
     flex: none;
 
-    border-width: 1px; 
+    border-width: 1px;
     border-style: solid;
     border-color: ${({ theme }) => theme.COLORS.GRAY_500};
   }
+`
+export const Span = styled(Link)`
+  align-items: flex-end;
+  text-align: left;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  margin-top: 8px;
+
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
 `
