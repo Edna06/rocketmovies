@@ -1,8 +1,6 @@
 import {Container, Form, Background} from "./styles"
 
-import { useContext } from "react"
-
-import { MyContext } from "../../myContext"
+import { useAuth } from "../../Hook/auth"
 
 import {FiMail, FiLock } from 'react-icons/fi'
 
@@ -11,8 +9,9 @@ import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
 export function SingIn(){
-  const data = useContext(MyContext)
-  console.log(data)
+ const data = useAuth()
+ console.log('my context =>', data)
+
   return(
     <Container>
       <Form>
