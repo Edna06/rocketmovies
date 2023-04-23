@@ -1,6 +1,8 @@
 import {Container, Form, Background} from "./styles"
 
-import {Link} from 'react-router-dom'
+import { useContext } from "react"
+
+import { MyContext } from "../../myContext"
 
 import {FiMail, FiLock } from 'react-icons/fi'
 
@@ -9,6 +11,8 @@ import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
 export function SingIn(){
+  const data = useContext(MyContext)
+  console.log(data)
   return(
     <Container>
       <Form>
@@ -31,7 +35,7 @@ export function SingIn(){
         <Button title='Entrar'/>
 
       <div className="buttonNewAccount">
-        <ButtonText redirect={'/Register'} title='Criar conta'/>
+        <ButtonText redirect={'/register'} title='Criar conta'/>
       </div>
 
       </Form>
