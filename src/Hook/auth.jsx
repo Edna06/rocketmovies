@@ -13,8 +13,6 @@ function AuthProvider({children}){
   const [data, setData] = useState({})
 
 
-
-
   async function signIn({email, password}) {
     try {
       const response = await api.post('/session', {email, password})
@@ -36,29 +34,35 @@ function AuthProvider({children}){
     }
   }
 
-
-
   function signOut() {
-    const user = localStorage.removeItem('@rocketmovies:user')
-    const token = localStorage.removeItem('@rocketmovies: token')
+    const user = localStorage.removeItem("@rocketmovies:user")
+    const token = localStorage.removeItem("@rocketmovies: token")
 
     setData({})
   }
 
 
-  async function updateProfile({user}){
+  async function updateProfile({user, avatarFile}){
     try {
-      await api.put('/users', user)
-      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
 
-      setData({
-        user,
-        token: data.token
-      })
-      alert('perfil atualizado!')
-    }
-    catch(error){
-      if(error.response){
+      if(avatarFile){
+        const fileUploadForm = new FormData()
+        fileUploadForm.append('avatar', avatarFile)
+
+        const response = await api.patch("/users/avatar", fileUploadForm)
+
+        user.avatar = response.data.avatar
+      }
+
+        await api.put('/users', user)
+        localStorage.setItem("@rocketmovies:user", JSON.stringify(user))
+
+       setData({ user, token: data.token})
+       alert('perfil atualizado!')
+
+
+     } catch(error){
+       if(error.response){
         alert(error.response.data.message)
       } else {
         alert('Não foi possível atualizar o perfil')
@@ -67,10 +71,9 @@ function AuthProvider({children}){
   }
 
 
-
   useEffect(() => {
-    const user = localStorage.getItem('@rocketmovies:user')
-    const token = localStorage.getItem('@rocketmovies: token')
+    const user = localStorage.getItem("@rocketmovies:user")
+    const token = localStorage.getItem("@rocketmovies: token")
 
 
     if(user && token){
@@ -84,7 +87,13 @@ function AuthProvider({children}){
   }, [])
 
   return(
-    <AuthContext.Provider value={{user: data.user, signIn, signOut, updateProfile}}>
+    <AuthContext.Provider value={{
+      signIn,
+      signOut,
+      updateProfile,
+      user: data.user
+      }}
+      >
       {children}
     </AuthContext.Provider>
   )

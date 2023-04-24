@@ -3,9 +3,15 @@ import {Input} from "../Input/index"
 
 import {useAuth} from '../../Hook/auth'
 
+import {api} from '../../service/api'
+import avatarPlaceholder from '../../assets/avatar-placeholder.jpg'
+
+
 export function Header(){
 
-  const {signOut} = useAuth()
+  const {signOut, user} = useAuth()
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
   return(
 
@@ -18,13 +24,15 @@ export function Header(){
 
     <Profile to='/profile'>
       <div>
-        <strong>Edna Moreira</strong>
+        <strong>{user.name}</strong>
         <Span onClick={signOut}>
           Sair
         </Span>
       </div>
 
-      <img src="https://github.com/Edna06.png" alt="foto do usuário" />
+      <img
+      src={avatarUrl}
+      alt= {`foto de ${user.name}`} />
     </Profile>
 
  </Container>
