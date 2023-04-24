@@ -1,7 +1,12 @@
 import {Container, Profile, Search, Span} from "./styles"
 import {Input} from "../Input/index"
 
+import {useAuth} from '../../Hook/auth'
+
 export function Header(){
+
+  const {signOut} = useAuth()
+
   return(
 
  <Container>
@@ -14,7 +19,9 @@ export function Header(){
     <Profile to='/profile'>
       <div>
         <strong>Edna Moreira</strong>
-        <Span>Sair</Span>
+        <Span onClick={signOut}>
+          Sair
+        </Span>
       </div>
 
       <img src="https://github.com/Edna06.png" alt="foto do usuário" />
