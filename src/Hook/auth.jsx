@@ -6,9 +6,14 @@ import {api} from '../service/api'
 
 export const AuthContext = createContext({})
 
-function AuthProvider({children}){
 
+
+
+function AuthProvider({children}){
   const [data, setData] = useState({})
+
+
+
 
   async function signIn({email, password}) {
     try {
@@ -31,12 +36,37 @@ function AuthProvider({children}){
     }
   }
 
+
+
   function signOut() {
     const user = localStorage.removeItem('@rocketmovies:user')
     const token = localStorage.removeItem('@rocketmovies: token')
 
     setData({})
   }
+
+
+  async function updateProfile({user}){
+    try {
+      await api.put('/users', user)
+      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
+
+      setData({
+        user,
+        token: data.token
+      })
+      alert('perfil atualizado!')
+    }
+    catch(error){
+      if(error.response){
+        alert(error.response.data.message)
+      } else {
+        alert('Não foi possível atualizar o perfil')
+      }
+    }
+  }
+
+
 
   useEffect(() => {
     const user = localStorage.getItem('@rocketmovies:user')
@@ -54,7 +84,7 @@ function AuthProvider({children}){
   }, [])
 
   return(
-    <AuthContext.Provider value={{user: data.user, signIn, signOut}}>
+    <AuthContext.Provider value={{user: data.user, signIn, signOut, updateProfile}}>
       {children}
     </AuthContext.Provider>
   )
