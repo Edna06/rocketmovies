@@ -14,7 +14,7 @@ export function Header(){
     <Profile to='/profile'>
       <div>
         <strong>Edna Moreira</strong>
-        <Span to='/login'>Sair</Span>
+        <Span>Sair</Span>
       </div>
 
       <img src="https://github.com/Edna06.png" alt="foto do usuário" />

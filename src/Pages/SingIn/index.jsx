@@ -2,6 +2,8 @@ import {Container, Form, Background} from "./styles"
 
 import { useAuth } from "../../Hook/auth"
 
+import { useState } from "react"
+
 import {FiMail, FiLock } from 'react-icons/fi'
 
 import { Button } from "../../Components/Button"
@@ -9,8 +11,14 @@ import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
 export function SingIn(){
- const data = useAuth()
- console.log('my context =>', data)
+ const [email, setEmail] = useState('')
+ const [password, setPassword] = useState('')
+
+ const {signIn} = useAuth()
+
+ function handleSignIn(){
+  signIn({email, password})
+ }
 
   return(
     <Container>
@@ -24,14 +32,18 @@ export function SingIn(){
         <Input
         type='text'
         icon={FiMail}
-        placeholder= "E-mail"/>
+        placeholder= "E-mail"
+        onChange = { e => setEmail(e.target.value)}/>
 
         <Input
         type='password'
         icon={FiLock}
-        placeholder= "Senha"/>
+        placeholder= "Senha"
+        onChange= {e => setPassword(e.target.value)}/>
 
-        <Button title='Entrar'/>
+        <Button
+        title='Entrar'
+        onClick= {handleSignIn}/>
 
       <div className="buttonNewAccount">
         <ButtonText redirect={'/register'} title='Criar conta'/>
