@@ -11,8 +11,10 @@ import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
 export function SingIn(){
- const [email, setEmail] = useState('')
+ const [email, setEmail] = useState('') //o nome do estado || função que atualiza o estado
  const [password, setPassword] = useState('')
+
+ 
 
  const {signIn} = useAuth()
 

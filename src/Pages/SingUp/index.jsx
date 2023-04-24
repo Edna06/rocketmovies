@@ -13,10 +13,10 @@ import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
 export function SingUp(){
+
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
 
   const navigate = useNavigate()
 
@@ -38,7 +38,6 @@ export function SingUp(){
       )
     })
   }
-
 
   return(
     <Container>
@@ -78,7 +77,7 @@ export function SingUp(){
 
       <div className="buttonNewAccount">
        <ButtonText
-       redirect='/login'
+       redirect={'/'}
        icon
        title='Voltar para o login'
        />

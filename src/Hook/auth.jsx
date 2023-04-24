@@ -1,6 +1,6 @@
 //arquivo com o contexto de autenticação
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 import {api} from '../service/api'
 
@@ -15,9 +15,11 @@ function AuthProvider({children}){
       const response = await api.post('/session', {email, password})
       const {user, token} = response.data
 
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`
-      setData({user, token})
-      console.log({user, token})
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}` //verificando se o usuário existe
+      setData({user, token}) //vai me retornar os dados do usuário
+
+      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
+      localStorage.setItem('@rocketmovies: token', token)
     }
     catch(error) {
       if(error.response){
@@ -28,6 +30,21 @@ function AuthProvider({children}){
 
     }
   }
+
+  useEffect(() => {
+    const user = localStorage.getItem('@rocketmovies:user')
+    const token = localStorage.getItem('@rocketmovies: token')
+
+
+    if(user && token){
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+      setData({
+        token,
+        user: JSON.parse(user) //pegado os dados do usuário que estavam armazenados em formato de texto e passando para JSON
+      })
+    }
+  }, [])
 
   return(
     <AuthContext.Provider value={{user: data.user, signIn}}>
