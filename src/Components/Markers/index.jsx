@@ -3,7 +3,7 @@ import {Container} from './styles'
 import {FiPlus, FiX} from 'react-icons/fi'
 
 
-export function Markers({ isNew, value, onClick, ...rest}){
+export function Markers({ isNew = false, value, onClick, ...rest}){
   return(
     <Container isNew={isNew}>
       <input
@@ -15,8 +15,8 @@ export function Markers({ isNew, value, onClick, ...rest}){
 
       <button
       type='button'
-      onClick={onClick}
       className = {isNew ? 'button-add' : 'button-delete'}
+      onClick={onClick}
       >
 
        {isNew ? <FiPlus/> : <FiX/>}
