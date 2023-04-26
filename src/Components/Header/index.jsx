@@ -7,7 +7,7 @@ import {api} from '../../service/api'
 import avatarPlaceholder from '../../assets/avatar-placeholder.jpg'
 
 
-export function Header(){
+export function Header({onChange}){
 
   const {signOut, user} = useAuth()
 
@@ -19,7 +19,10 @@ export function Header(){
    <h1>RocketMovies</h1>
 
     <Search>
-   <Input placeholder="Pesquisar pelo título"/>
+   <Input
+   placeholder="Pesquisar pelo título"
+   onChange = {onChange}
+   />
     </Search>
 
     <Profile to='/profile'>

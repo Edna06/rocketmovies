@@ -1,10 +1,10 @@
 import { Container, Head, Content, Info} from "./styles";
+
 import {Header} from "../../Components/Header/index"
 import {Button} from "../../Components/Button"
 import { ButtonText } from "../../Components/ButtonText/index";
 import { Input } from "../../Components/Input/index";
 import {Markers} from "../../Components/Markers/index"
-
 import { Textarea } from "../../Components/Textarea/index";
 
 import { useState } from "react";
@@ -16,14 +16,18 @@ import { api } from "../../service/api";
 
 export function CreateMovie(){
 
-  const [tags, setTags] = useState([])
-  const [newTag, setNewTag] = useState("")
-
   const [title, setTitle] = useState("")
   const [rating, setRating] = useState("")
   const [description, setDescription] = useState("")
 
+  const [tags, setTags] = useState([])
+  const [newTag, setNewTag] = useState("")
 
+  const navigate = useNavigate()
+
+  function handleBack(){
+    navigate(-1)
+  }
 
   function handleAddTag(){
     setTags( prevState => [...prevState, newTag]);
@@ -35,24 +39,33 @@ export function CreateMovie(){
   }
 
   async function handleNewNote(){
+
+    if(!title){
+      return alert('Digite o título da nota')
+    }
+
+    if(newTag){
+      return alert('você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
+    }
+
+
+    alert('Nota criada com sucesso!')
+    handleBack()
+
     await api.post('/movie_notes', {
       title,
       rating,
       description,
       tags
     })
-    alert('Nota criada com sucesso!')
-
   }
-
-
 
   return(
     <Container>
       <Header/>
 
       <Head>
-      <ButtonText  redirect='/' icon title="Voltar"/>
+      <ButtonText  onClick={handleBack} icon title="Voltar"/>
       </Head>
 
       <main>

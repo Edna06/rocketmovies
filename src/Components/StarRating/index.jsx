@@ -6,6 +6,11 @@ import {AiFillStar} from 'react-icons/ai'
 
 export function StarRating({ rating }){
   // Calcula o número de estrelas inteiras e meias estrelas
+
+  if (typeof rating !== 'number') {
+    return null; 
+  }
+
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);

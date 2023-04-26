@@ -6,7 +6,7 @@ export function NoteOfMovies({data, ...rest}){
 return (
 
   <Container {...rest}>
-    
+
     <header>
     <h2>{data.title}</h2>
 
@@ -15,15 +15,15 @@ return (
 
     <main>
       <p>
-        {data.description}   
+        {data.description}
       </p>
     </main>
 
-  {data.tags && 
+  {data.tags &&
     <footer>
       {
-        data.tags.map( tag => 
-          <Tag key={tag.id} title={tag.name}/> 
+        data.tags.map( tag =>
+          <Tag key={tag.id} title={tag.name}/>
          )
       }
     </footer>
