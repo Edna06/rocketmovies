@@ -16,7 +16,18 @@ export const Container = styled.div`
     background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
     display: flex;
+
+    @media (max-width: 600px) {
+    padding-left: 14px;
+  }
+
+  @media (min-width: 600px) {
+    padding-left: 80px;
+  }
+
+  @media (min-width: 1024px) {
     padding-left: 144px;
+  }
   }
 `
 

@@ -9,12 +9,18 @@ import {FiPlus} from "react-icons/fi"
 import { useState, useEffect } from 'react'
 
 import { api } from '../../service/api'
+import { useNavigate } from 'react-router-dom'
 
 export function Home(){
   const [search, setSearch] = useState("")
 
   const [notes, setNotes] = useState([])
 
+  const navigate = useNavigate()
+
+  function handleDetails(id){
+    navigate(`/moviepreview/${id}`)
+  }
 
   useEffect(()=> {
     async function fetchNotes(){
@@ -49,7 +55,9 @@ return(
 
         <NoteOfMovies
         key={String(note.id)}
-        data={note}/>
+        data={note}
+        onClick={ () => handleDetails(note.id)}
+        />
           ))
           }
 

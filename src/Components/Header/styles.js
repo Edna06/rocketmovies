@@ -26,6 +26,18 @@ export const Container = styled.div`
 export const Search = styled.div`
   width: 630px;
   height: 56px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    width: 240px;
+  }
+
+  @media (min-width: 962px) {
+    width: 420px;
+  }
 `
 
 export const Profile = styled(Link)`
@@ -46,7 +58,7 @@ export const Profile = styled(Link)`
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
   }
-  
+
   > img {
     margin-left: 9px;
 
@@ -73,3 +85,4 @@ export const Span = styled(Link)`
 
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 `
+

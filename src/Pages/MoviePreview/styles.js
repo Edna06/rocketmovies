@@ -21,17 +21,17 @@ export const Container = styled.div`
     overflow-y: auto;
 
     ::-webkit-scrollbar {
-      width: 8px; 
+      width: 8px;
     }
 
     ::-webkit-scrollbar-track {
-      background: none; 
+      background: none;
     }
 
     ::-webkit-scrollbar-thumb {
-      background-color: ${({theme})=> theme.COLORS.PINK}; 
-      border-radius: 8px; 
-      border: none; 
+      background-color: ${({theme})=> theme.COLORS.PINK};
+      border-radius: 8px;
+      border: none;
     }
   }
 `
@@ -58,6 +58,10 @@ export const Title = styled.div`
 
     margin-right: 19px;
   }
+
+  @media(max-width: 662px) {
+    display: block;
+  }
 `
 
 export const Stars = styled.div`
@@ -65,10 +69,12 @@ export const Stars = styled.div`
 div {
   height: 25px;
   font-size: 25px;
-  
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
+
+  @media(min-width: 662px) {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
 }
 `
 
@@ -77,6 +83,10 @@ export const Info = styled.div`
 
   display: flex;
   flex-direction: row;
+
+  @media(max-width: 662px) {
+    margin-top: 50px;
+}
 `
 
 export const Author = styled.div`
