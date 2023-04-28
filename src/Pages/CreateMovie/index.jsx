@@ -38,19 +38,29 @@ export function CreateMovie(){
     setTags(prevState => [...prevState.filter( tag => tag !== tagDeleted)])
   }
 
-  async function handleNewNote(){
+  function handleClearNote(){
+    const response = window.confirm('Você deseja realmente remover os dados inseridos?')
 
+    if(response){
+      setTitle("")
+      setRating("")
+      setDescription("")
+    }
+  }
+
+  async function handleNewNote(){
     if(!title){
       return alert('Digite o título da nota')
     }
-
     if(newTag){
-      return alert('você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
+      return alert('Você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
+    }
+    if(!newTag){
+      return alert('O campo de "Marcadores" não pode ficar vazio')
     }
 
-
     alert('Nota criada com sucesso!')
-    // handleBack()
+    handleBack()
 
     await api.post('/movie_notes', {
       title,
@@ -75,17 +85,20 @@ export function CreateMovie(){
 
          <Info>
            <Input
+           value={title}
            placeholder="Título"
            onChange = { e => setTitle(e.target.value)}
            />
 
            <Input
+           value={rating}
            placeholder="Sua nota (de 0 a 5)"
            onChange = { e => setRating(e.target.value)}
            />
          </Info>
 
          <Textarea
+         value={description}
          placeholder="Observações"
          onChange = { e => setDescription(e.target.value)}/>
 
@@ -118,9 +131,10 @@ export function CreateMovie(){
      </main>
 
      <footer>
-       <Button title="Excluir filme"/>
+       <Button title="Limpar"
+       onClick={handleClearNote}/>
        <Button
-       title="Salvar alterações"
+       title="Salvar filme"
        onClick={handleNewNote} />
      </footer>
 
