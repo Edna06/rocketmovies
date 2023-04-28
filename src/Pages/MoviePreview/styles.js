@@ -12,13 +12,22 @@ export const Container = styled.div`
     'button'
     'main';
 
-  > main {
-    grid-area: main;
+    > main {
+        grid-area: main;
 
-    margin: 0 106px 70px 123px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
+        margin: 0 10px 20px 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(min-width: 662px) {
+      > main {
+        grid-area: main;
+
+        margin: 0 106px 70px 123px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
 
     ::-webkit-scrollbar {
       width: 8px;
@@ -34,18 +43,22 @@ export const Container = styled.div`
       border: none;
     }
   }
+  }
 `
 
 export const Button = styled.div`
-    grid-area: button;
+grid-area: button;
+display: flex;
+justify-content: space-between;
+
+padding: 15px 12px 0 12px;
+
+a:nth-child(2){
+  color: ${({theme}) => theme.COLORS.RED};
+}
+  @media(min-width: 662px) {
     padding: 15px 123px 0 123px;
 
-    display: flex;
-    justify-content: space-between;
-
-
-  a:nth-child(2){
-    color: ${({theme}) => theme.COLORS.RED};
   }
 `
 
