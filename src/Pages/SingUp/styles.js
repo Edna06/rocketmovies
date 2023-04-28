@@ -49,6 +49,14 @@ export const Form = styled.form`
 
     margin-top: 42px;
   }
+
+  @media(max-width: 376px) {
+    margin: auto 30px;
+  }
+
+  @media(min-width: 425px) {
+    margin: auto 56px;
+  }
 `
 
 export const Background = styled.form`

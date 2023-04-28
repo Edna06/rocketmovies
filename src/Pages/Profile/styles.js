@@ -107,4 +107,11 @@ export const Form = styled.form`
 
     filter: brightness(0.5);
   }
+
+  @media(max-width: 376px) {
+    padding-right: 1px;
+    > div {
+      width: 220px;
+    }
+  }
 `

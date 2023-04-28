@@ -40,9 +40,23 @@ export const Head = styled.div`
 export const Content = styled.div`
   grid-area: main;
 
+  margin: 40px 40px 40px 40px;
+
+
+  > main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin-right: 10px;
+  }
+
+  @media(min-width: 1024px) {
+
   margin: 0 106px 40px 123px;
   overflow-y: auto;
-  
+
+
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -56,13 +70,7 @@ export const Content = styled.div`
     border-radius: 8px;
     border: none;
   }
-  > main {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    margin-right: 10px;
-  }
+}
 `
 
 export const Wrapper = styled(Link)`

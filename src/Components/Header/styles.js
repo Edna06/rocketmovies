@@ -22,6 +22,11 @@ export const Container = styled.div`
     font-weight: 700;
     line-height: 32px;
   }
+
+  @media (max-width: 768px) {
+    padding: 42px 43px;
+  }
+
 `
 export const Search = styled.div`
   width: 630px;

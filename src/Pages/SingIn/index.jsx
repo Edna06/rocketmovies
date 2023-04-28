@@ -10,18 +10,9 @@ import { Button } from "../../Components/Button"
 import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
-import { useNavigate } from "react-router-dom"
-
 export function SingIn(){
  const [email, setEmail] = useState('') //o nome do estado || função que atualiza o estado
  const [password, setPassword] = useState('')
-
-
- const navigate = useNavigate()
-
- function handleRegister(){
-   navigate("/register")
-  }
 
   const {signIn} = useAuth()
 

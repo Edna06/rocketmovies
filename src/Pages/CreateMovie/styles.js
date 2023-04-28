@@ -1,9 +1,34 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+width: 100%;
+height: 100vh;
 
+> main {
+    margin: 0 6px 7px 23px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+> footer {
+  > button {
+      width: 336.5px;
+      height: 56px;
+
+      margin: auto;
+    }
+
+    button:nth-child(1) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      color: ${({ theme }) => theme.COLORS.PINK};
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    }
+}
+
+  @media(min-width: 1024px){
   display: grid;
   grid-template-rows: 120px 90px auto 100px;
   grid-template-areas:
@@ -47,11 +72,7 @@ export const Container = styled.div`
       width: 536.5px;
       height: 56px;
     }
-
-    button:nth-child(1) {
-      color: ${({ theme }) => theme.COLORS.PINK};
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    }
+  }
   }
 `
 export const Content = styled.div`
@@ -81,24 +102,74 @@ export const Content = styled.div`
 
     .tags {
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
       align-items: flex-start;
       padding: 16px;
       gap: 24px;
 
       width: 100%;
-      height: 88px;
+      height: fit-content;
 
       background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
       border-radius: 8px;
     }
   }
+
+  @media(max-width: 1024px) {
+    padding-right: 15px;
+
+  > h1 {
+    font-size: 26px;
+    line-height: 27px;
+    margin-bottom: 30px;
+  }
+
+  > section {
+    margin-top: 30px;
+
+    h3 {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 12px;
+
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      gap: 9px;
+
+      div {
+      padding: 6px;
+      width: 150px;
+
+    >input {
+      width: 100px;
+
+      ::placeholder {
+        font-size: 14px;
+      }
+    }
+
+    > button {
+    color: ${({ theme }) => theme.COLORS.PINK};
+
+    font-size: 20px;
+    line-height: 24px;
+     }
+    }
+   }
+ }
+}
 `
 
 export const Head = styled.div`
-  grid-area: head;
+   grid-area: head;
 
   padding: 40px 0 0 123px;
+
+  @media(max-width: 1024px) {
+  padding: 10px 0 30px 23px;
+  }
 `
 
 export const Info = styled.div`
@@ -109,5 +180,10 @@ export const Info = styled.div`
 
   > div {
     height: 55px;
+  }
+
+  @media(max-width: 426px) {
+  gap: 10px;
+  margin-bottom: 10px;
   }
 `
