@@ -17,17 +17,29 @@ import avatarPlaceholder from '../../assets/avatar-placeholder.jpg'
 
 
 export function MoviePreview(){
+
   const {user} = useAuth()
 
   const [data, setData] = useState(null)
+  const [date, setDate] = useState({})
+
 
   const params = useParams()
   const navigate = useNavigate()
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
+  const created = new window.Date(date.created_at);
+  created.setTime(created.getTime() - 3 * 3600000);
+  const day = created.getDate();
+  const month = created.toLocaleString('default', { month: '2-digit' });
+  const year = String(created.getFullYear()).slice(-2);
+  const hours = String(created.getHours()).padStart(2, '0');
+  const minutes = String(created.getMinutes()).padStart(2, '0');
 
-  function handleBack(){
+
+
+    function handleBack(){
     navigate(-1)
   }
 
@@ -41,9 +53,11 @@ export function MoviePreview(){
   }
 
   useEffect(() => {
-    async function fetchNoteOfMovie (){
+    async function fetchNoteOfMovie(){
       const response = await api.get(`/movie_notes/${params.id}`)
+
       setData(response.data)
+      setDate(response.data)
     }
 
     fetchNoteOfMovie()
@@ -94,7 +108,7 @@ export function MoviePreview(){
               <span>
                 <FiClock/>
                 </span>
-              <p> {data.created_at}</p>
+              <p> {day}/{month}/{year} às {hours}:{minutes}</p>
             </Date>
           </Info>
 

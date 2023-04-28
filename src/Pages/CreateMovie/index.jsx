@@ -36,7 +36,6 @@ export function CreateMovie(){
 
   function handleRemoveTag(tagDeleted){
     setTags(prevState => [...prevState.filter( tag => tag !== tagDeleted)])
-    console.log(tag)
   }
 
   async function handleNewNote(){
@@ -51,7 +50,7 @@ export function CreateMovie(){
 
 
     alert('Nota criada com sucesso!')
-    handleBack()
+    // handleBack()
 
     await api.post('/movie_notes', {
       title,
