@@ -31,6 +31,15 @@ export function MoviePreview(){
     navigate(-1)
   }
 
+  async function handleRemove(){
+    const confirm = window.confirm("Deseja realmente remover a nota?")
+
+    if(confirm) {
+      await api.delete(`/movie_notes/${params.id}`)
+      handleBack()
+    }
+  }
+
   useEffect(() => {
     async function fetchNoteOfMovie (){
       const response = await api.get(`/movie_notes/${params.id}`)
@@ -53,6 +62,13 @@ export function MoviePreview(){
       icon
       title="Voltar"
       onClick={handleBack}/>
+
+      <ButtonText
+      iconTrash
+      title="Excluir"
+      onClick={handleRemove}
+      />
+
       </Button>
 
     {

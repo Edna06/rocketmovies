@@ -1,10 +1,11 @@
 import { Container } from "./styles";
-import {FiArrowLeft} from 'react-icons/fi'
+import {FiArrowLeft, FiTrash} from 'react-icons/fi'
 
-export function ButtonText({icon, title, ...rest}){
+export function ButtonText({icon, iconTrash, title, ...rest}){
  return(
    <Container {...rest}>
     {icon ? <FiArrowLeft/> : ""}
+    {iconTrash ? <FiTrash/> : ""}
     {title}
    </Container>
  )

@@ -38,7 +38,15 @@ export const Container = styled.div`
 
 export const Button = styled.div`
     grid-area: button;
-    padding: 15px 0 0 123px;
+    padding: 15px 123px 0 123px;
+
+    display: flex;
+    justify-content: space-between;
+
+
+  a:nth-child(2){
+    color: ${({theme}) => theme.COLORS.RED};
+  }
 `
 
 export const Content = styled.div`
