@@ -14,6 +14,7 @@ import {useState, useEffect} from 'react'
 import {useAuth} from '../../Hook/auth'
 import avatarPlaceholder from '../../assets/avatar-placeholder.jpg'
 
+import { toast } from "react-toastify";
 
 
 export function MoviePreview(){
@@ -49,6 +50,7 @@ export function MoviePreview(){
     if(confirm) {
       await api.delete(`/movie_notes/${params.id}`)
       handleBack()
+      toast.success("Nota excluída com sucesso!")
     }
   }
 

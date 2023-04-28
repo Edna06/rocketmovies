@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 
 import {Container, Form, Background} from "./styles"
 
@@ -11,6 +11,8 @@ import {api} from '../../service/api'
 import { Button } from "../../Components/Button"
 import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
+
+import { toast } from "react-toastify";
 
 export function SingUp(){
 
@@ -31,14 +33,14 @@ export function SingUp(){
 
     api.post('/users', {name, email, password})
     .then(() => {
-      alert("Usuário cadastrado com sucesso!")
+      toast.success("Usuário cadastrado com sucesso!")
       navigate('/')
       })
     .catch ( error => {
       if(error.response) {
-        alert( error.response.data.message)
+        toast.error( error.response.data.message)
       } else (
-        alert("Não foi possível cadastrar")
+        toast.warn("Não foi possível cadastrar")
       )
     })
   }

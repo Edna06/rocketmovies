@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 import { api } from "../../service/api";
 
+import { toast } from "react-toastify";
 
 export function CreateMovie(){
 
@@ -50,13 +51,13 @@ export function CreateMovie(){
 
   async function handleNewNote(){
     if(!title){
-      return alert('Digite o título da nota')
+      return toast.warn('Digite o título da nota')
     }
     if(newTag){
-      return alert('Você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
+      return toast.info('Você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
     }
-    
-    alert('Nota criada com sucesso!')
+
+    toast.success('Nota criada com sucesso!')
     handleBack()
 
     await api.post('/movie_notes', {

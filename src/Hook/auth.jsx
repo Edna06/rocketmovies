@@ -1,4 +1,5 @@
 //arquivo com o contexto de autenticação
+import { toast } from "react-toastify";
 
 import { createContext, useContext, useState, useEffect } from "react";
 
@@ -26,9 +27,9 @@ function AuthProvider({children}){
     }
     catch(error) {
       if(error.response){
-        alert(error.response.data.message)
+        toast.warn(error.response.data.message)
       } else {
-        alert("Não foi possível entrar.")
+        toast.error("Não foi possível entrar.")
       }
 
     }
@@ -58,14 +59,14 @@ function AuthProvider({children}){
         localStorage.setItem("@rocketmovies:user", JSON.stringify(user))
 
        setData({ user, token: data.token})
-       alert('perfil atualizado!')
+       toast.success('perfil atualizado!')
 
 
      } catch(error){
        if(error.response){
-        alert(error.response.data.message)
+        toast.error(error.response.data.message)
       } else {
-        alert('Não foi possível atualizar o perfil')
+        toast.error('Não foi possível atualizar o perfil')
       }
     }
   }
