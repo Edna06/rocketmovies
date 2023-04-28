@@ -10,17 +10,25 @@ import { Button } from "../../Components/Button"
 import { Input } from "../../Components/Input"
 import { ButtonText } from "../../Components/ButtonText"
 
+import { useNavigate } from "react-router-dom"
+
 export function SingIn(){
  const [email, setEmail] = useState('') //o nome do estado || função que atualiza o estado
  const [password, setPassword] = useState('')
 
- 
 
- const {signIn} = useAuth()
+ const navigate = useNavigate()
+
+ function handleRegister(){
+   navigate("/register")
+  }
+
+  const {signIn} = useAuth()
 
  function handleSignIn(){
-  signIn({email, password})
- }
+   signIn({email, password})
+  }
+
 
   return(
     <Container>
@@ -48,7 +56,12 @@ export function SingIn(){
         onClick= {handleSignIn}/>
 
       <div className="buttonNewAccount">
-        <ButtonText redirect={'/register'} title='Criar conta'/>
+
+        <ButtonText
+        to= "/register"
+        title='Criar conta'
+        />
+
       </div>
 
       </Form>

@@ -3,7 +3,8 @@ import {FiArrowLeft, FiTrash} from 'react-icons/fi'
 
 export function ButtonText({icon, iconTrash, title, ...rest}){
  return(
-   <Container {...rest}>
+   <Container
+   {...rest}>
     {icon ? <FiArrowLeft/> : ""}
     {iconTrash ? <FiTrash/> : ""}
     {title}

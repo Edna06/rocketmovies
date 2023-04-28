@@ -55,10 +55,7 @@ export function CreateMovie(){
     if(newTag){
       return alert('Você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio')
     }
-    if(!newTag){
-      return alert('O campo de "Marcadores" não pode ficar vazio')
-    }
-
+    
     alert('Nota criada com sucesso!')
     handleBack()
 

@@ -20,6 +20,10 @@ export function SingUp(){
 
   const navigate = useNavigate()
 
+  function handleBack(){
+    navigate(-1)
+  }
+
   function handleSingleUp(){
     if(!name || !email || !password){
       return alert("preencha todos os campos!")
@@ -77,8 +81,8 @@ export function SingUp(){
 
       <div className="buttonNewAccount">
        <ButtonText
-       redirect={'/'}
        icon
+       onClick = {handleBack}
        title='Voltar para o login'
        />
       </div>
