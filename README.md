@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=M-GXpy7UZ40&ab_channel=EdnaMoreira
 
 <div align="center">
 
-Confira o front-end da aplicação: https://rocketmovies-dusky.vercel.app/
+Confira o deploy da aplicação: [https://rocketmovies-dusky.vercel.app/](https://master--whimsical-croquembouche-bee7ab.netlify.app/)
 <br>
 </div>
 
